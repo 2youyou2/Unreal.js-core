@@ -191,6 +191,9 @@ public:
 	static void AddComboButton(FJavascriptMenuBuilder& Builder, UJavascriptComboButtonContext* Object, UObject* EditingObject);
 
 	UFUNCTION(BlueprintCallable, Category = "Scripting | Javascript")
+	static FJavascriptSlateWidget CreateComboButtonWidget(FJavascriptUICommandList List, UJavascriptUICommands* UICommands);
+
+	UFUNCTION(BlueprintCallable, Category = "Scripting | Javascript")
 	static void AddMenuEntry(FJavascriptMenuBuilder& Builder, UJavascriptMenuContext* Object);
 
 	UFUNCTION(BlueprintCallable, Category = "Scripting | Javascript")
