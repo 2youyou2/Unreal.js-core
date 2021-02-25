@@ -144,6 +144,21 @@ void UJavascriptMenuLibrary::AddComboButton(FJavascriptMenuBuilder& Builder, UJa
 	}
 }
 
+FJavascriptSlateWidget UJavascriptMenuLibrary::CreateComboButtonWidget(FJavascriptUICommandList List, UJavascriptUICommands* UICommands)
+{
+	FMenuBuilder MenuBuilder(true, List.Handle);
+
+	for (FJavascriptUICommandInfo CommandInfo : UICommands->CommandInfos)
+	{
+		MenuBuilder.AddMenuEntry(CommandInfo.Handle);
+	}
+
+	FJavascriptSlateWidget widget;
+	widget.Widget = MenuBuilder.MakeWidget();
+
+	return widget;
+}
+
 void UJavascriptMenuLibrary::AddMenuEntry(FJavascriptMenuBuilder& Builder, UJavascriptMenuContext* Object)
 {
 	if (Builder.Menu)
