@@ -185,6 +185,7 @@ public:
 		Paths.Add(GetPluginScriptsDirectory4());
 		Paths.Add(GetPluginScriptsDirectory5());
 		Paths.Add(GetPluginScriptsDirectory6());
+		Paths.Add(GetPluginScriptsDirectory7());
 		Paths.Add(GetPakPluginScriptsDirectory());
 
 		const UJavascriptSettings& Settings = *GetDefault<UJavascriptSettings>();
@@ -239,6 +240,10 @@ public:
 	static FString GetPluginScriptsDirectory6()
 	{
 		return FPaths::EnginePluginsDir() / "Marketplace/cocos-sync-unreal/CppPlugin/UnrealJS/Content/Scripts/";
+	}
+	static FString GetPluginScriptsDirectory7()
+	{
+		return FPaths::EnginePluginsDir() / "cocos-sync-unreal/CppPlugin/UnrealJS/Content/Scripts/";
 	}
 
 	static FString GetPakPluginScriptsDirectory()
