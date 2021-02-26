@@ -31,6 +31,8 @@
 
 		read_dir(root_path)
 
+		extensions.push(__dirname + '/cocos-sync/extension-export-cocos.js')
+
 		function spawn(moduleCategory, modulePath) {
             try {
                 console.log(`[${getTimestampString()}]: (editor.js) Importing ${moduleCategory} module: '${modulePath}'`)
@@ -68,7 +70,10 @@
 		global.$exit = function () {
 			global.$$exit()
 		}
-		Context.WriteDTS(Context.Paths[0] + 'typings/ue.d.ts')
+		// Context.WriteDTS(Context.Paths[0] + 'typings/ue.d.ts')
+		Context.WriteDTS(__dirname + '/typings/ue.d.ts');
+
+
 		Context.WriteAliases(Context.Paths[0] + 'aliases.js')
 
 		Context.RunFile('aliases.js')
