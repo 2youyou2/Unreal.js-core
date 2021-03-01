@@ -17,6 +17,7 @@ class SyncStaticMeshComponent extends component_1.SyncComponent {
         meshRendererData.materilas = [];
         for (let i = 0; i < materials.length; i++) {
             let data = await syncProcess(materials[i]);
+            console.warn('material : ' + materials[i].GetName());
             if (data) {
                 meshRendererData.materilas.push(data.uuid);
             }

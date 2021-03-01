@@ -31,9 +31,10 @@ function compileInputs(code) {
     for (let i = 0; i < lines.length; i++) {
         let line = lines[i];
         let newLine = line;
-        if (newLine.indexOf('PixelMaterialInputs.') !== -1) {
+        if (newLine.indexOf('PixelMaterialInputs.') !== -1 || newLine.indexOf('(PixelMaterialInputs).') !== -1) {
             for (let name in PixelMaterialInputsReplace) {
-                newLine = newLine.replace(new RegExp(`\\bPixelMaterialInputs.${name}\\b`, 'g'), `materialSurface.${PixelMaterialInputsReplace[name]}`);
+                newLine = newLine.replace(new RegExp(`\\bPixelMaterialInputs\\.${name}\\b`, 'g'), `materialSurface.${PixelMaterialInputsReplace[name]}`);
+                newLine = newLine.replace(new RegExp(`\\(PixelMaterialInputs\\)\\.${name}\\b`, 'g'), `materialSurface.${PixelMaterialInputsReplace[name]}`);
             }
             if (newLine === line) {
                 continue;

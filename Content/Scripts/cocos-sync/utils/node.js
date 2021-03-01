@@ -51,7 +51,8 @@ function runProc(proc, resolve, reject) {
                     json = JSON.parse(jsonStr);
                 }
                 catch (err) {
-                    reject(err);
+                    reject('runProc : Parse Json filed : ' + jsonStr);
+                    // reject(err);
                     return;
                 }
                 resolve(json.result);

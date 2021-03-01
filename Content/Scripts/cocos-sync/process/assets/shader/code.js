@@ -8,7 +8,6 @@ class MaterialCodes {
         this.properties_sampler_block = '';
         this.surfaceLines = [];
         this.surface = '';
-        this.proxy = '';
         this.final = '';
         // indent
         this.properties_temp_indent = '      ';

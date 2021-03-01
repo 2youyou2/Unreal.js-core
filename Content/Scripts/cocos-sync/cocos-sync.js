@@ -9,6 +9,7 @@ const net = require("./utils/net");
 const scene_1 = require("./datas/scene");
 const shader_1 = require("datas/asset/shader");
 const material_1 = require("datas/asset/material");
+const mesh_1 = require("datas/asset/mesh");
 let sceneData = null;
 let startTime = 0;
 async function begin() {
@@ -35,6 +36,7 @@ function end() {
     sceneData.exportBasePath = 'Exported-unreal';
     sceneData.forceSyncAssetTypes.push(new shader_1.SyncShaderData().name);
     sceneData.forceSyncAssetTypes.push(new material_1.SyncMaterialData().name);
+    sceneData.forceSyncAssetTypes.push(new mesh_1.SyncMeshData().name);
     // sceneData.forceSyncAssetTypes.push(new SyncTextureData().name);
     net.sendObj({
         msg: 'sync-datas',
@@ -83,9 +85,12 @@ async function exportSelectedAssets() {
     await begin();
     let engine = Root.GetEngine();
     let textures = engine.GetSelectedSet(Texture).GetSelectedObjects().Out.map(o => o);
+    let materials = engine.GetSelectedSet(MaterialInterface).GetSelectedObjects().Out.map(o => o);
     for (let i = 0; i < textures.length; i++) {
-        let data = await sync_1.default(textures[i]);
-        sceneData.assets.push(data);
+        await sync_1.default(textures[i]);
+    }
+    for (let i = 0; i < materials.length; i++) {
+        await sync_1.default(materials[i]);
     }
     end();
 }

@@ -1,6 +1,6 @@
 // @ts-nocheck
 module.exports = () => {
-    console.warn('require : ' + require);
+    // console.warn('require : ' + require);
     let _ = require('lodash');
     // builder helper (for better js-ish code)
     function make(what) {
@@ -128,7 +128,7 @@ module.exports = () => {
         require('./cocos-sync').cocosSyncSelectedAssets();
     };
     function exportToCocosToolbar() {
-        console.warn('load exportToCocosToolbar');
+        // console.warn('load exportToCocosToolbar')
         new_styleset({
             styleset: 'ExportToCocos',
             root: Root.GetDir('EnginePlugins'),

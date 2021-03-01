@@ -8,7 +8,7 @@ class SyncShader extends asset_1.SyncAsset {
         return asset.GetPathName() + '/shader';
     }
     static async doSync(asset) {
-        let code = compile_1.compile(asset);
+        let code = await compile_1.compile(asset);
         let data = new shader_1.SyncShaderData();
         data.shaderType = shader_1.ShaderType.Source;
         data.source = code.final;

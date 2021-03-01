@@ -15,12 +15,13 @@ class SyncStaticMesh extends asset_1.SyncAsset {
         let min = new math_1.Vec3(Infinity, Infinity, Infinity);
         let max = new math_1.Vec3(-Infinity, -Infinity, -Infinity);
         let numSections = asset.GetNumSections(0);
+        console.warn('numSections : ' + numSections);
         if (!asset.bAllowCPUAccess) {
             asset.SetAllowCPUAccess(true);
         }
         for (let i = 0; i < numSections; i++) {
             let subMeshData = new mesh_1.SyncSubMeshData();
-            let out = asset.GetSectionFromStaticMesh(0, 0);
+            let out = asset.GetSectionFromStaticMesh(0, i);
             let vertices = out.Vertices;
             for (let i = 0; i < vertices.length; i++) {
                 let x = vertices[i].X / 100;
