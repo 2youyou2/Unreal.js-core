@@ -6037,6 +6037,7 @@ declare class MaterialGraphHelper extends Class {
 	static GetDefaultObject(): MaterialGraphHelper;
 	static CreateDefaultSubobject(Name: string, Transient?: boolean, Required?: boolean, Abstract?: boolean): MaterialGraphHelper;
 	static SaveTextureMipData(Texture: Texture,Path: string,MipLevel: number): void;
+	static SaveReflectionCubemap(comp: ReflectionCaptureComponent,Path: string): void;
 	static GetVectorParameterNames(Material: Material): string[];
 	static GetUsedTextureNames(Material: Material): string[];
 	static GetTextureMipData(Texture: Texture,MipLevel: number): number[];
